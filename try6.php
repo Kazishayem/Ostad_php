@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $div = $plainTextToArray["num1"]/$plainTextToArray["num2"];
 
     $result = [
-        'sim' => $sum,
+        'sum' => $sum,
         'sub' => $sub,
         'mul' => $mul,
         'div' => $div
