@@ -1,0 +1,29 @@
+Create a Shape class with a method getArea() that returns 0. Then, create a Circle class that inherits from Shape and adds a property radius. Override the getArea() method in Circle to calculate and return the area of the circle using the formula πr^2.
+
+this formula return pi() * pow($this->radius , 2);
+
+Try to write a Shape class with a getArea() method that returns 0. Then, create a Rectangle class that inherits from Shape and adds width and height properties. Override the getArea() method in Rectangle to calculate and return the area of the rectangle using the formula width * height.
+
+
+Create an Animal class with a makeSound() method that prints "The animal makes a sound". Then, create a Dog class that inherits from Animal and overrides the makeSound() method to print "The dog barks".
+
+
+Create a Logger class with an abstract log() method. Then, create FileLogger and DatabaseLogger classes that inherit from Logger and implement the log() method. Use composition to create a Request class that can contain a Logger object and log its data using the logger.
+
+ans
+
+<?php 
+abstract class Logger { public abstract function log($data); 
+}
+ class FileLogger extends Logger { 
+    private $file; 
+    public function __construct(string $file) 
+    { $this->file = $file; }
+     public function log($data) { file\_put\_contents($this->file, $data . "\n", FILE\_APaPEND); } 
+     } 
+     class DatabaseLogger extends Logger { private $pdo; public function __construct(PDO $pdo) { $this->pdo = $pdo; } public function log($data) { $stmt = $this->pdo->prepare("INSERT INTO logs (data) VALUES (:data)"); $stmt->bindParam(":data", $data); $stmt->execute(); } } class Request { private $logger; public function __construct(Logger $logger) { $this->logger = $logger; } public function send($data) { // Send the request $this->logger->log($data); } } $
+
+
+     Sure, I can provide you with a real project example using PHP inheritance. Let's say we are building a library management system. We have a Book class that has properties like title, author, and publisher. We also have a Magazine class that has properties like title, publisher, and issueNumber.
+
+We can use inheritance to create a parent class Publication that has common properties like title and publisher. The Book and Magazine classes can then inherit from the Publication class.
